@@ -1,6 +1,6 @@
 {
   "name": "gulp-just-replace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A gulp plugin only to do string.replace().",
   "main": "index.js",
   "repository": {
