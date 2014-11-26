@@ -1,35 +1,23 @@
 {
-  "name": "gulp-replace",
-  "version": "0.5.0",
-  "description": "A string replace plugin for gulp",
+  "name": "gulp-just-replace",
+  "version": "1.0.0",
+  "description": "A gulp plugin only to do string.replace().",
   "main": "index.js",
-  "dependencies": {
-    "event-stream": "^3.1.7",
-    "replacestream": "1.0.2",
-    "istextorbinary": "^1.0.0"
-  },
-  "devDependencies": {
-    "should": "^4.1.0",
-    "mocha": "^2.0.1",
-    "gulp-util": "^3.0.1"
-  },
-  "scripts": {
-    "test": "./node_modules/.bin/mocha"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lazd/gulp-replace.git"
+    "url": "https://github.com/caiguanhao/gulp-just-replace.git"
   },
   "keywords": [
+    "gulp",
     "gulpplugin",
     "replace"
   ],
-  "author": "Larry Davis <lazdnet@gmail.com>",
+  "author": "Cai Guanhao (caiguanhao@gmail.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lazd/gulp-replace/issues"
+    "url": "https://github.com/caiguanhao/gulp-just-replace/issues"
   },
-  "engines": {
-    "node": ">=0.10"
-  }
+  "homepage": "https://github.com/caiguanhao/a5r-i18n-gettext",
+  "dependencies": {},
+  "devDependencies": {}
 }

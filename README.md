@@ -1,73 +1,38 @@
-# gulp-replace [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
-> A string replace plugin for gulp 3
+gulp-just-replace
+=================
 
-## Usage
+The [gulp-replace](https://github.com/lazd/gulp-replace) is fine.
+But it's painful to install it on production server as it takes
+many seconds to install those useless dependencies for me.
 
-First, install `gulp-replace` as a development dependency:
+This is just a gulp plugin only knows how to do string.replace().
+No other dependencies except the `through2` needed by gulp.
+This plugin is so simple that does not need tests. You can
+understand the source code in less than one minute.
 
-```shell
-npm install --save-dev gulp-replace
+```js
+var replace = require('gulp-just-replace');
+
+// string
+gulp.src('src.html').
+pipe(replace(/%USER%/g, 'me')).
+pipe(gulp.dest('dest.html'));
+
+// array
+gulp.src('src.html').
+pipe(replace([
+  {
+    search: /%USER%/g,
+    replacement: 'me'
+  }, {
+    search: /%DATE%/g,
+    replacement: new Date
+  }, {
+    search: /%TIME_USED%/g,
+    replacement: function () {
+      return (+new Date - start) / 1000 + ' s';
+    }
+  }
+])).
+pipe(gulp.dest('dest.html'));
 ```
-
-Then, add it to your `gulpfile.js`:
-
-```javascript
-var replace = require('gulp-replace');
-
-gulp.task('templates', function(){
-  gulp.src(['file.txt'])
-    .pipe(replace(/foo(.{3})/g, '$1foo'))
-    .pipe(gulp.dest('build/file.txt'));
-});
-```
-
-
-## API
-
-gulp-replace can be called with a string or regex.
-
-### replace(string, replacement[, options])
-
-#### string
-Type: `String`
-
-The string to search for.
-
-#### replacement
-Type: `String` or `Function`
-
-The replacement string or function. If `replacement` is a function, it will be called once for each match and will be passed the string that is to be replaced.
-
-### replace(regex, replacement[, options])
-
-#### regex
-Type: `RegExp`
-
-The regex pattern to search for. See the [MDN documentation for RegExp] for details.
-
-#### replacement
-Type: `String` or `Function`
-
-The replacement string or function. See the [MDN documentation for String.replace] for details.
-
-### gulp-replace options
-
-An optional third argument, `options`, can be passed.
-
-#### options
-Type: `Object`
-
-##### options.skipBinary
-Type: `boolean`  
-Default: `false`
-
-Skip binary files
-
-
-[MDN documentation for RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
-[MDN documentation for String.replace]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter
-
-[travis-url]: http://travis-ci.org/lazd/gulp-replace
-[travis-image]: https://secure.travis-ci.org/lazd/gulp-replace.svg?branch=master
-[npm-url]: https://npmjs.org/package/gulp-replace
-[npm-image]: https://badge.fury.io/js/gulp-replace.svg
