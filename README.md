@@ -19,6 +19,8 @@ pipe(replace(/%USER%/g, 'me')).
 pipe(gulp.dest('dest.html'));
 
 // array
+var start = +new Date;
+
 gulp.src('src.html').
 pipe(replace([
   {

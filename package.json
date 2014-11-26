@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/caiguanhao/gulp-just-replace/issues"
   },
-  "homepage": "https://github.com/caiguanhao/a5r-i18n-gettext",
+  "homepage": "https://github.com/caiguanhao/gulp-just-replace",
   "dependencies": {
     "through2": "^0.6.3"
   },
